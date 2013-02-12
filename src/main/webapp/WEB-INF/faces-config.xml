@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.0"
+			  xmlns="http://java.sun.com/xml/ns/javaee"
+			  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+
+	<name>tnt</name>
+
+	<component>
+		<component-type>tnt.Input</component-type>
+		<component-class>com.codingcrayons.tnt.Html5Input</component-class>
+	</component>
+
+	<render-kit>
+		<renderer>
+			<component-family>com.codingcrayons.tnt</component-family>
+			<renderer-type>com.codingcrayons.tnt.Html5InputRenderer</renderer-type>
+			<renderer-class>com.codingcrayons.tnt.Html5InputRenderer</renderer-class>
+		</renderer>
+	</render-kit>
+
+</faces-config>

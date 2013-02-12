@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+				xmlns:ui="http://java.sun.com/jsf/facelets"
+				xmlns:h="http://java.sun.com/jsf/html"
+				xmlns:tnt="http://codingcrayons.com/tnt"
+				template="layout.xhtml">
+
+	<ui:param name="title" value="TNT!"/>
+	<ui:define name="header">
+	</ui:define>
+	<ui:define name="content">
+		<h1>TNT!</h1>
+		<h:form id="t">
+			<table>
+				<tbody>
+				<tr>
+					<th><h:outputLabel value="Email: " for="email"/></th>
+					<td><tnt:input id="email" type="date" required="true"/></td>
+				</tr>
+				<tr>
+					<th></th>
+					<td><h:commandButton value="Send" /></td>
+				</tr>
+				</tbody>
+			</table>
+		</h:form>
+	</ui:define>
+</ui:composition>
