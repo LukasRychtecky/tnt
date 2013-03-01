@@ -7,8 +7,12 @@
 	<groupId>com.codingcrayons</groupId>
 	<artifactId>tnt</artifactId>
 	<version>0.1</version>
-	<packaging>war</packaging>
+	<packaging>${packaging.type}</packaging>
 	<name>TNT</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 
 	<dependencies>
 		<dependency>
@@ -45,8 +49,12 @@
 	</dependencies>
 
 	<build>
-		<finalName>${project.artifactId}</finalName>
+		<finalName>${project.artifactId}-${env}</finalName>
 		<plugins>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.9</version>
+			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.2</version>
@@ -78,17 +86,37 @@
 
 	<profiles>
 		<profile>
-			<id>default</id>
+			<id>dev</id>
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
+			<properties>
+				<packaging.type>war</packaging.type>
+				<env>dev</env>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<activation>
+				<property>
+					<name>env</name>
+					<value>prod</value>
+				</property>
+			</activation>
+			<properties>
+				<packaging.type>jar</packaging.type>
+				<env>prod</env>
+			</properties>
 			<build>
-				<plugins>
-					<plugin>
-						<artifactId>maven-surefire-plugin</artifactId>
-						<version>2.9</version>
-					</plugin>
-				</plugins>
+				<resources>
+					<resource>
+						<directory>src/main/resources</directory>
+						<filtering>true</filtering>
+						<excludes>
+							<exclude>**/rebel.xml</exclude>
+						</excludes>
+					</resource>
+				</resources>
 			</build>
 		</profile>
 	</profiles>
