@@ -6,17 +6,8 @@
 
 	<name>tnt</name>
 
-	<component>
-		<component-type>tnt.Input</component-type>
-		<component-class>com.codingcrayons.tnt.Html5Input</component-class>
-	</component>
-
-	<render-kit>
-		<renderer>
-			<component-family>com.codingcrayons.tnt</component-family>
-			<renderer-type>com.codingcrayons.tnt.Html5InputRenderer</renderer-type>
-			<renderer-class>com.codingcrayons.tnt.Html5InputRenderer</renderer-class>
-		</renderer>
-	</render-kit>
+	<factory>
+		<render-kit-factory>com.codingcrayons.tnt.kit.Html5RenderKitFactory</render-kit-factory>
+	</factory>
 
 </faces-config>
