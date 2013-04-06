@@ -113,7 +113,7 @@
 						<directory>src/main/resources</directory>
 						<filtering>true</filtering>
 						<excludes>
-							<exclude>**/rebel.xml</exclude>
+							<exclude>rebel.xml</exclude>
 						</excludes>
 					</resource>
 				</resources>
