@@ -253,4 +253,16 @@ public class Html5ResponseWriterTest {
 		writer.startElement(name, submit);
 		verify(wrapped, never()).writeAttribute(autofocus, "", null);
 	}
+
+	@Test
+	public void writePrimeFacesComponent() throws IOException {
+		// org.primefaces.component.inputtext.InpuText extends HtmlInputText
+		HtmlInputText input = mock(HtmlInputText.class);
+		String name = "input";
+		when(input.isRequired()).thenReturn(true);
+		attrs.put(UIComponent.CURRENT_COMPONENT, input);
+
+		writer.startElement(name, null);
+		verify(wrapped).writeAttribute(ATTR_REQUIRED, "", ATTR_REQUIRED);
+	}
 }

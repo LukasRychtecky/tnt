@@ -73,6 +73,11 @@ public class Html5ResponseWriter extends ResponseWriterWrapper {
 	public void startElement(String name, UIComponent component) throws IOException {
 		super.startElement(name, component);
 
+		if (component == null) {
+			// Try lookup a component, a workaround for PrimeFaces
+			component = getCurrentComponent();
+		}
+
 		if (component instanceof UIForm && "form".equals(name)) {
 			writeHtml5Attributes(FORM_ATTRS, component);
 			writeRequiredAttribute(component);
@@ -116,7 +121,7 @@ public class Html5ResponseWriter extends ResponseWriterWrapper {
 	}
 
 	protected UIComponent getCurrentComponent() {
-		return (UIComponent) ctx.getAttributes().get(UIComponent.CURRENT_COMPONENT);
+		return UIComponent.getCurrentComponent(ctx);
 	}
 
 	@Override
