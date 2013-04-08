@@ -36,7 +36,7 @@ Examples
 An email input with a placeholder:
 
 ```xml
-<h:inputText id="email" placeholder="Email address" value="#{user.email}"/>
+<h:inputText id="email" type="email" placeholder="Email address" value="#{user.email}"/>
 ```
 
 A required text input with autofocus
