@@ -12,6 +12,12 @@
 		<component>
 			<component-type>tnt.HorizontalMenu</component-type>
 		</component>
+		<attribute>
+			<description>If it is true renders HTML select for a display smaller than 30em, otherwise renders an unordered list.</description>
+			<name>mini</name>
+			<required>false</required>
+			<type>boolean</type>
+		</attribute>
 	</tag>
 
 	<tag>
