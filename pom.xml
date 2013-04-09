@@ -114,9 +114,32 @@
 						<filtering>true</filtering>
 						<excludes>
 							<exclude>rebel.xml</exclude>
+							<exclude>css/tnt.less</exclude>
 						</excludes>
 					</resource>
 				</resources>
+				<plugins>
+					<plugin>
+						<groupId>org.lesscss</groupId>
+						<artifactId>lesscss-maven-plugin</artifactId>
+						<version>1.3.0</version>
+						<configuration>
+							<sourceDirectory>${project.basedir}/src/main/resources/css</sourceDirectory>
+							<outputDirectory>${project.build.directory}/classes/css</outputDirectory>
+							<compress>true</compress>
+							<includes>
+								<include>tnt.less</include>
+							</includes>
+						</configuration>
+						<executions>
+							<execution>
+								<goals>
+									<goal>compile</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
 			</build>
 		</profile>
 	</profiles>
