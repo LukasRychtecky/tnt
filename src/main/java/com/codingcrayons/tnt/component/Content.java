@@ -1,5 +1,6 @@
 package com.codingcrayons.tnt.component;
 
+import com.codingcrayons.tnt.core.DependenciesManager;
 import java.io.IOException;
 
 import javax.faces.component.FacesComponent;
@@ -10,6 +11,12 @@ import javax.faces.context.ResponseWriter;
 
 @FacesComponent(value = "tnt.Content")
 public class Content extends UIOutput {
+
+	public Content() {
+		super();
+		DependenciesManager.getInstance(FacesContext.getCurrentInstance()).insertMetaViewport();
+		DependenciesManager.getInstance(FacesContext.getCurrentInstance()).insertTNTCSS();
+	}
 
 	@Override
 	public void encodeBegin(FacesContext context) throws IOException {
