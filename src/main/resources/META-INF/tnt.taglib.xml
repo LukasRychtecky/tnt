@@ -7,4 +7,24 @@
         version="2.0">
     <namespace>http://codingcrayons.com/tnt</namespace>
 
+	<tag>
+		<tag-name>horizontalMenu</tag-name>
+		<component>
+			<component-type>tnt.HorizontalMenu</component-type>
+		</component>
+		<attribute>
+			<description>If it is true renders HTML select for a display smaller than 30em, otherwise renders an unordered list.</description>
+			<name>mini</name>
+			<required>false</required>
+			<type>boolean</type>
+		</attribute>
+	</tag>
+
+	<tag>
+		<tag-name>menuItem</tag-name>
+		<component>
+			<component-type>tnt.MenuItem</component-type>
+		</component>
+	</tag>
+
 </facelet-taglib>

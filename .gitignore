@@ -2,3 +2,5 @@
 .idea/
 target/
 
+src/main/resources/META-INF/resources/css/tnt.css
+
