@@ -54,13 +54,24 @@ A text input with a pattern validator
 Responsive horizontal menu
 --------------------------
 
-Put this line into your head:
+Components dependencies are loaded automatically. If you want to handle dependencies by yourself follow these points:
+
+Put this line into `web.xml`:
+
+```xml
+<context-param>
+	<param-name>TNT.AUTO_LOAD</param-name>
+	<param-value>false</param-value>
+</context-param>
+```
+
+And this line into your head:
 
 ```xml
 <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
 ```
 
-Add `tnt.css` into your css file, path: `tnt-prod.jar/css/tnt.css`
+Add `tnt.css` into your css file, path: `tnt-prod.jar/META-INF/resources/css/tnt.css`
 
 And at least the menu, namespace: `http://codingcrayons.com/tnt`
 
