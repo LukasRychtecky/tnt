@@ -1,0 +1,60 @@
+.tnt-vertical-menu {
+	display: inline-block;
+	font-size: 2em;
+	width: 100%;
+
+	ul {
+		padding: 0;
+		margin: 0;
+
+		&.hidden {
+			display: none;
+		}
+
+		li {
+			width: auto;
+			display: block;
+			float: none;
+			list-style: none;
+
+			a {
+				display: block;
+				padding: 0.2em 0.5em;
+
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
+	}
+
+	.mini-menu {
+		display: block;
+
+		select {
+			width: 100%;
+			font-size: large;
+		}
+	}
+}
+
+@media screen and (min-width: 30em) {
+	.tnt-vertical-menu {
+		width: auto;
+
+		ul {
+
+			&.hidden {
+				display: block;
+			}
+
+			li {
+				float: left;
+			}
+		}
+
+		.mini-menu {
+			display: none;
+		}
+	}
+}

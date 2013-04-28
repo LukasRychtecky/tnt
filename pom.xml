@@ -108,7 +108,7 @@
 						<filtering>true</filtering>
 						<excludes>
 							<exclude>rebel.xml</exclude>
-							<exclude>css/tnt.less</exclude>
+							<exclude>css/*.less</exclude>
 						</excludes>
 					</resource>
 				</resources>

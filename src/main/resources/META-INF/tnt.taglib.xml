@@ -27,4 +27,36 @@
 		</component>
 	</tag>
 
+	<tag>
+		<description>Main wrapper for whole page that is rendered as Div. Should contains Article and Column tags.</description>
+		<tag-name>content</tag-name>
+		<component>
+			<component-type>tnt.Content</component-type>
+		</component>
+	</tag>
+
+	<tag>
+		<description>A wrapper for an article that is rendered as Article tag.</description>
+		<tag-name>article</tag-name>
+		<component>
+			<component-type>tnt.Article</component-type>
+		</component>
+	</tag>
+
+	<tag>
+		<description>A wrapper for a responsive header that is rendered as Header tag.</description>
+		<tag-name>header</tag-name>
+		<component>
+			<component-type>tnt.Header</component-type>
+		</component>
+	</tag>
+
+	<tag>
+		<description>A wrapper for a sidebar that is rendered as Aside tag.</description>
+		<tag-name>sidebar</tag-name>
+		<component>
+			<component-type>tnt.Sidebar</component-type>
+		</component>
+	</tag>
+
 </facelet-taglib>

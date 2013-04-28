@@ -1,0 +1,31 @@
+.tnt-content article {
+
+	*zoom: 1;
+	display: block;
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+	padding-top: 1em;
+
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.tnt-content article {
+		padding-left: 2em;
+		padding-right: 2em;
+		padding-top: 1em;
+		padding-bottom: 1em;
+		float: left;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+	.tnt-content article {
+		padding-left: 3em;
+		padding-right: 3em;
+	}
+}

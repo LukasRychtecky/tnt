@@ -1,0 +1,40 @@
+.tnt-content aside.tnt-sidebar {
+
+	*zoom: 1;
+	float: none;
+	overflow: hidden;
+	padding: 0.5em;
+
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+@media only screen and (min-width: 750px) {
+	.tnt-content aside.tnt-sidebar {
+		float: none;
+		width: auto;
+		margin: 0;
+
+		&:after {
+			clear: left;
+		}
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.tnt-content aside.tnt-sidebar {
+		width: 15em;
+		clear: none;
+		float: left;
+		margin: 0 -100% 0 0;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+	.tnt-content aside.tnt-sidebar {
+		width: 18em;
+	}
+}
