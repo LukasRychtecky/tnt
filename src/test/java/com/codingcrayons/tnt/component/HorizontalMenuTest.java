@@ -1,11 +1,15 @@
 package com.codingcrayons.tnt.component;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import javax.faces.component.UISelectItem;
+import javax.faces.component.UIViewRoot;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
@@ -24,16 +28,29 @@ public class HorizontalMenuTest {
 	protected ResponseWriter writer;
 	protected FacesContext context;
 	protected MenuItem[] menuItems;
+	protected Map<Object, Object> attrs;
+	protected ExternalContext externalContext;
+	protected UIViewRoot viewRoot;
 
 	@BeforeMethod
 	public void setUp() {
-		menu = new HorizontalMenu();
 		writer = mock(ResponseWriter.class);
 		context = mock(FacesContext.class);
 		when(context.getResponseWriter()).thenReturn(writer);
 		menuItems = new MenuItem[] {
 			mock(MenuItem.class), mock(MenuItem.class)
 		};
+
+		attrs = new HashMap<Object, Object>();
+		when(context.getAttributes()).thenReturn(attrs);
+
+		externalContext = mock(ExternalContext.class);
+		when(context.getExternalContext()).thenReturn(externalContext);
+
+		viewRoot = mock(UIViewRoot.class);
+		when(context.getViewRoot()).thenReturn(viewRoot);
+
+		menu = new HorizontalMenu(context);
 		for (MenuItem item : menuItems) {
 			menu.getChildren().add(item);
 		}

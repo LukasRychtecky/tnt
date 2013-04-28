@@ -1,5 +1,6 @@
 package com.codingcrayons.tnt.component;
 
+import com.codingcrayons.tnt.core.DependenciesManager;
 import java.io.IOException;
 
 import javax.faces.component.FacesComponent;
@@ -16,6 +17,17 @@ public class HorizontalMenu extends UIOutput {
 	public static final String SELECT_CLASS = "mini-menu";
 
 	protected boolean mini = false;
+
+	public HorizontalMenu() {
+		this(FacesContext.getCurrentInstance());
+	}
+
+	public HorizontalMenu(FacesContext context) {
+		// a constructor only for testing
+		super();
+		DependenciesManager.getInstance(context).insertMetaViewport();
+		DependenciesManager.getInstance(context).insertTNTCSS();
+	}
 
 	public boolean isMini() {
 		return mini;
