@@ -2,6 +2,8 @@ package com.codingcrayons.tnt.core;
 
 import java.util.HashMap;
 import java.util.Map;
+import org.mockito.invocation.InvocationOnMock;
+import org.mockito.stubbing.Answer;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -13,6 +15,7 @@ import javax.faces.context.FacesContext;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
@@ -106,5 +109,23 @@ public class DependenciesManagerTest {
 		attrs.put("tnt.viewport.meta", true);
 		manager.insertMetaViewport();
 		verify(viewRoot, never()).addComponentResource(eq(context), any(UIOutput.class), eq("head"));
+	}
+
+	@Test
+	public void metaViewportShouldWorksWithPrimeFaces() {
+		doAnswer(new Answer() {
+			@Override
+			public Object answer(InvocationOnMock invocationOnMock) throws Throwable {
+				Object[] args = invocationOnMock.getArguments();
+				UIOutput viewport = (UIOutput)args[1];
+				assertTrue(viewport.getAttributes().get("name").toString().endsWith(".js"), "Name must ends with .js, it's a workaround for PrimeFaces");
+				return null;
+			}
+		}).when(viewRoot).addComponentResource(eq(context), any(UIOutput.class), eq("head"));
+
+		manager.insertMetaViewport();
+
+		verify(viewRoot).addComponentResource(eq(context), any(UIOutput.class), eq("head"));
+		assertTrue(attrs.containsKey("tnt.viewport.meta"));
 	}
 }

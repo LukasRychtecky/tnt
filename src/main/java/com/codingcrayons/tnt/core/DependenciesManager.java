@@ -50,6 +50,10 @@ public class DependenciesManager {
 
 		UIOutput viewport = new UIOutput();
 		viewport.setValue("<meta name=\"viewport\" content=\"initial-scale=1, maximum-scale=1\"/>");
+
+		// workaround for PrimeFaces, otherwise PrimeFaces will skip it
+		viewport.getAttributes().put("name", "tnt.viewport.js");
+
 		context.getViewRoot().addComponentResource(context, viewport, "head");
 		context.getAttributes().put(buildResourceKey(name, library), true);
 	}
