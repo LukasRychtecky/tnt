@@ -4,3 +4,11 @@
 	white-space: -o-pre-wrap;
 	white-space: pre-wrap;
 }
+
+.clear-after {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
