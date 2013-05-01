@@ -134,6 +134,12 @@ public class Html5ResponseWriter extends ResponseWriterWrapper {
 	}
 
 	private void writeHtml5Attributes(Set<String> names, UIComponent component) throws IOException {
+
+		// a workaround for PrimeFaces Calendar, it's uses pattern attribute for date format
+		if ("org.primefaces.component.calendar.Calendar".equals(component.getClass().getCanonicalName())) {
+			return;
+		}
+
 		Map<String, Object> attributes = component.getAttributes();
 		for (String name : names) {
 			Object value = attributes.get(name);
