@@ -13,7 +13,7 @@ import javax.faces.context.ResponseWriter;
 @FacesComponent(value = "tnt.HorizontalMenu")
 public class HorizontalMenu extends UIOutput {
 
-	public static final String NAV_CLASS = "tnt-vertical-menu";
+	public static final String NAV_CLASS = "tnt-horizontal-menu";
 	public static final String SELECT_CLASS = "mini-menu";
 
 	protected boolean mini = false;
